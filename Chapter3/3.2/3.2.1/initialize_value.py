@@ -1,7 +1,8 @@
+#coding=utf-8
 import tensorflow as tf
 
 weight1 = tf.Variable(0.001)
-# weight2µÄ³õÊ¼ÖµÊÇweightµÄ2±¶
+# weight2çš„åˆå§‹å€¼æ˜¯weightçš„2å€.
 weight2 = tf.Variable(weight1.initialized_value() * 2)
 init = tf.global_variables_initializer()
 with tf.Session() as sess:
