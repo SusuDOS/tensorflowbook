@@ -6,6 +6,7 @@ x_plus_1 = tf.assign_add(x, 1, name="x_plus")
 
 with tf.control_dependencies([x_plus_1]):
     y = tf.identity(x, name="y")
+    # 上行替换 y = x 区别
 
 init = tf.global_variables_initializer()
 with tf.Session() as sess:
