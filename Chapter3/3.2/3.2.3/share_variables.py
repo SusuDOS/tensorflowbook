@@ -2,7 +2,9 @@
 import numpy as np
 import tensorflow as tf
 
-# 获取训练数据和测试数据
+# 获取训练数据和测试数据.
+
+# 都是数据一个个的追加，而不是快速生成批量数据，到底算是优势还是劣势.
 def get_data(number):
     list_x = []
     list_label = []
