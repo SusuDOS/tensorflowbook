@@ -2,7 +2,12 @@
 import numpy as np
 import tensorflow as tf
 
-# 获取训练数据和测试数据.
+"""
+测试的数据集大小为生成的1000个.
+epoch明显只是一个，batch_size = 1,明显就是一个个的读取并且计算的，抖动很大.
+
+获取训练数据和测试数据.
+"""
 
 # 都是数据一个个的追加，而不是快速生成批量数据，到底算是优势还是劣势.
 def get_data(number):
