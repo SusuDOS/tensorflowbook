@@ -7,6 +7,7 @@ def get_data(number):
     list_x = []
     list_label = []
     for i in range(number):
+        # 生成满足正态分布的，维度为1的sample.
         x = np.random.randn(1)
         # 这里构建数据的分布满足 y = 2 * x + 10
         label = 2 * x + np.random.randn(1) * 0.01  + 10
