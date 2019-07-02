@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 #将文件名列表传入
-filename_queue = tf.train.string_input_producer(["file0.tfrecords", "file1.tfrecords"],shuffle=True,num_epochs=2)
+filename_queue = tf.train.string_input_producer(["./MyTemp/file0.tfrecords", "./MyTemp/file1.tfrecords"],shuffle=True,num_epochs=2)
 
 # 使用TFRecorder来读取
 reader = tf.TFRecordReader()
@@ -12,10 +12,13 @@ features = tf.parse_single_example(
           'v1': tf.FixedLenFeature([], tf.int64),
           'v2': tf.FixedLenFeature([], tf.int64),
       })
-	  
+
 v1 = tf.cast(features['v1'], tf.int32)
 v2 = tf.cast(features['v2'], tf.int32)
 v_mul = tf.multiply(v1,v2)
+
+"""
+书中没有改部分代码，但是上传的github上有该注释部分的代码.
 print(v1.get_shape())
 
 batch_v1, batch_v2 = tf.train.shuffle_batch([v1,v2], 
@@ -25,6 +28,8 @@ batch_v1, batch_v2 = tf.train.shuffle_batch([v1,v2],
                                   min_after_dequeue=20 #出队后队列最少保留样本数
                                   )
 print(batch_v1.get_shape())
+
+"""
 
 init_op = tf.global_variables_initializer()
 local_init_op = tf.local_variables_initializer()
@@ -53,4 +58,3 @@ finally:
 # 等待线程结束
 coord.join(threads)
 sess.close()
-
