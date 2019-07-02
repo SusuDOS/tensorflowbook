@@ -24,6 +24,11 @@ tf.summary.scalar("loss", loss[0])
 
 merged_summary = tf.summary.merge_all()
 
+"""
+# 创建图三连.
+tf.summary.FileWriter("./cal_graph").add(tf.get_default_graph())
+"""
+
 summary_writer = tf.summary.FileWriter('./log_graph' )
 summary_writer.add_graph(tf.get_default_graph())
 init_op = tf.global_variables_initializer()
