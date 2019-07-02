@@ -28,7 +28,6 @@ batch_v1, batch_v2 = tf.train.shuffle_batch([v1,v2],
                                   min_after_dequeue=20 #出队后队列最少保留样本数
                                   )
 print(batch_v1.get_shape())
-
 """
 
 init_op = tf.global_variables_initializer()
